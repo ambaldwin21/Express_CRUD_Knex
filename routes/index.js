@@ -4,7 +4,7 @@ var users = require('./users')
 var posts = require('./posts')
 
 router.get('/', function(req, res) {
-  res.redirect('posts', { title: 'Blog!' })
+  res.redirect('/posts')
 })
 
 router.use('/users', users)
