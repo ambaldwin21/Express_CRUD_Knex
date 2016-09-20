@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Editing {{user.first_name}} {{user.last_name}}</h2>
+  <form name="edit-user-form" id="edit-user-form">
+    <div class="row">
+      <div class="input-field col-sm-12">
+        <label for="title">First Name</label>
+        <input class="input-field col-sm-12" id="first_name" type="text" value="{{user.first_name}}">
+      </div>
+      <div class="input-field col-sm-12">
+        <label for="title">Last Name</label>
+        <input class="input-field col-sm-12" id="last_name" type="text" value="{{user.last_name}}">
+      </div>
+      <div class="input-field col-sm-12">
+        <label for="avatar">Link to Picture</label>
+        <input id="avatar" type="text" value="{{user.avatar}}">
+      </div>
+      <div class="input-field col-sm-12">
+        <label for="bio">Bio</label>
+        <textarea id="bio" class="materialize-textarea">{{user.bio}}</textarea>
+      </div>
+      <button type="submit" id="edit-user-btn" class="waves-effect waves-light btn-large">Submit</button>
+    </div>
+  </form>
+</div>

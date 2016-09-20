@@ -25,15 +25,22 @@ router.post('/', function(req, res) {
 })
 
 router.put('/:id', function(req, res) {
-  res.send('this will update a user')
+  db.updateOneUser(req.params.id, req.body).then(() => {
+    res.json({'response': 'user updated'})
+  })
 })
 
 router.delete('/:id', function(req, res) {
-  res.send('this will delete a user')
+  db.deleteOneUser(req.params.id).then(() => {
+    res.json({'response': 'user deleted'})
+  })
 })
 
 router.get('/:id/edit', function(req, res) {
-  res.send('this displays the edit form')
+  db.getOneUser(req.params.id).then(user => {
+    res.render('users/edit', {user: user})
+  })
+
 })
 
 module.exports = router
