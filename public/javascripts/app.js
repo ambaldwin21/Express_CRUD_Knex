@@ -1,9 +1,20 @@
+'use strict'
+
 $(document).ready(() => {
   console.log('wassup')
+  formatDates()
   updateUserListener()
 })
 
 const id = parseInt(window.location.pathname.split('/')[2])
+
+function formatDates(){
+  var dates = $('.date')
+  dates.map(date => {
+    $('.date').empty()
+    $('.date').append(moment(date).format('LL'))
+  })
+}
 
 function updateUserListener(){
   $('#edit-user-btn').click((e) => {
