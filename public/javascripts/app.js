@@ -1,7 +1,6 @@
 'use strict'
 
 $(document).ready(() => {
-  console.log('wassup')
   formatDates()
   editUserListener()
   deleteUserListener()
@@ -22,6 +21,7 @@ function formatDates(){
 function editUserListener(){
   $('#edit-user-btn').click((e) => {
     e.preventDefault()
+    const id = $('#id').val().trim()
     const first_name = $('#first_name').val().trim()
     const last_name = $('#last_name').val().trim()
     const avatar = $('#avatar').val().trim()
@@ -31,7 +31,7 @@ function editUserListener(){
       url: `/users/${id}`,
       method: 'PUT',
       dataType: 'json',
-      data: JSON.stringify({first_name, last_name, avatar, bio}),
+      data: JSON.stringify({id, first_name, last_name, avatar, bio}),
     }).done(() => {
       console.log('here')
       window.location = '/users'

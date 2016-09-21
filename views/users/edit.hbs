@@ -1,9 +1,12 @@
 <div class="container">
   <h2>Editing {{user.first_name}} {{user.last_name}}</h2>
-  <form name="edit-user-form" id="edit-user-form">
+  <form name="edit-user-form">
     <div class="row">
       <div class="input-field col-sm-12">
-        <label for="title">First Name</label>
+        <input class="input-field col-sm-12" id="id" type="text" value="{{user.id}}" hidden>
+      </div>
+      <div class="input-field col-sm-12">
+        <label for="first_name">First Name</label>
         <input class="input-field col-sm-12" id="first_name" type="text" value="{{user.first_name}}">
       </div>
       <div class="input-field col-sm-12">

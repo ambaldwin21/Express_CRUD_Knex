@@ -13,32 +13,32 @@ router.get('/new', function(req, res) {
 })
 
 router.get('/:id', function(req, res) {
-  db.getOneUser(req.params.id).then(user => {
+  db.getUser(req.params.id).then(user => {
     res.render('users/user', {user: user, title: 'Blog!'})
   })
 })
 
 router.post('/', function(req, res) {
-  db.createOneUser(req.body).then(() => {
+  db.createUser(req.body).then(() => {
     res.redirect('/users')
   })
 })
 
 router.put('/:id', function(req, res) {
-  db.updateOneUser(req.params.id, req.body).then(() => {
+  db.updateUser(req.body).then(() => {
     res.json({'response': 'user updated'})
   })
 })
 
 router.delete('/:id', function(req, res) {
   console.log('here')
-  db.deleteOneUser(req.params.id).then(() => {
+  db.deleteUser(req.params.id).then(() => {
     res.json({'response': 'user deleted'})
   })
 })
 
 router.get('/:id/edit', function(req, res) {
-  db.getOneUser(req.params.id).then(user => {
+  db.getUser(req.params.id).then(user => {
     res.render('users/edit', {user: user, title: 'Blog!'})
   })
 
