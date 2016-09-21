@@ -4,17 +4,19 @@ var db = require('../db/api')
 
 router.get('/', function(req, res) {
   db.getAllPosts().then(posts => {
-    res.render('posts/posts', {posts: posts, title: 'Blog!'})
+    res.render('posts/posts', {posts: posts, title: 'An Excellent Blog'})
   })
 })
 
 router.get('/new', function(req, res) {
-  res.render('posts/new', {title: 'Blog!'})
+  db.getAllUsers().then(users => {
+    res.render('posts/new', {users: users, title: 'An Excellent Blog'})
+  })
 })
 
 router.get('/:id', function(req, res) {
   db.getPost(req.params.id).then(post => {
-    res.render('posts/post', {post: post, title: 'Blog!'})
+    res.render('posts/post', {post: post, title: 'An Excellent Blog'})
   })
 })
 
@@ -37,10 +39,11 @@ router.delete('/:id', function(req, res) {
 })
 
 router.get('/:id/edit', function(req, res) {
-  db.getPost(req.params.id).then(post => {
-    res.render('posts/edit', {post: post, title: 'Blog!'})
+  db.getAllUsers().then(users => {
+    console.log(users)
+    res.render('posts/edit', {users: users, title: 'An Excellent Blog'})
   })
-
 })
+
 
 module.exports = router
