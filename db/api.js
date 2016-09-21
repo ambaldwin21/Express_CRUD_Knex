@@ -14,7 +14,6 @@ module.exports = {
     return knex('users').insert(user)
   },
   updateUser(user) {
-    console.log(user)
     return knex('users')
     .where('users.id', user.id)
     .update(user)

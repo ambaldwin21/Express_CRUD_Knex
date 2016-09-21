@@ -33,11 +33,11 @@
 
 /*Comments Styles*/
 
-.comments {
-  margin-left: 40px;
+.name-title {
+  font-size: 1.2em;
+  color: #c61abf;
 }
 
-.comment-author {
-  font-weight: 700;
-  margin-bottom: -10px;
+form {
+  margin-top: 60px;
 }

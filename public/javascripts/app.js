@@ -61,16 +61,15 @@ function deleteUserListener(){
 function editPostListener(){
   $('#edit-post-btn').click((e) => {
     e.preventDefault()
-
+    const id = $('#id').val().trim()
     const title = $('#title').val().trim()
     const body = $('#body').val().trim()
-
     $.ajax({
       contentType: 'application/json',
-      url: `/users/${id}`,
+      url: `/posts/${id}`,
       method: 'PUT',
       dataType: 'json',
-      data: JSON.stringify({title, body}),
+      data: JSON.stringify({id, title, body}),
     }).done(() => {
       console.log('here')
       window.location = '/posts'

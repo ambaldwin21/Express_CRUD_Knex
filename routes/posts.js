@@ -27,7 +27,8 @@ router.post('/', function(req, res) {
 })
 
 router.put('/:id', function(req, res) {
-  db.updatePost(req.params.id, req.body).then(() => {
+  console.log(req.body)
+  db.updatePost(req.body).then(() => {
     res.json({'response': 'post updated'})
   })
 })
@@ -39,9 +40,8 @@ router.delete('/:id', function(req, res) {
 })
 
 router.get('/:id/edit', function(req, res) {
-  db.getAllUsers().then(users => {
-    console.log(users)
-    res.render('posts/edit', {users: users, title: 'An Excellent Blog'})
+  db.getPost(req.params.id).then(post => {
+    res.render('posts/edit', {post: post, title: 'An Excellent Blog'})
   })
 })
 

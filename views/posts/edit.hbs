@@ -1,14 +1,17 @@
 <div class="container container-custom">
-  <h2>Editing {{post.title}}</h2>
-  <form name="edit-post-form" id="edit-post-form">
+  <h4>Editing <span class="name-title">{{post.title}}</span></h4>
+  <form name="edit-post-form">
     <div class="row">
+      <div class="input-field col-sm-12">
+        <input class="input-field col-sm-12" id="id" type="text" value="{{post.postId}}" hidden>
+      </div>
       <div class="input-field col-sm-12">
         <label for="title">Title</label>
         <input class="input-field col-sm-12" id="title" type="text" value="{{post.title}}">
       </div>
       <div class="input-field col-sm-12">
         <label for="body">Body</label>
-        <textarea id="body" class="materialize-textarea">{{post.body}}</textarea>
+        <textarea id="body" class="materialize-textarea">{{post.postBody}}</textarea>
       </div>
       <button type="submit" id="edit-post-btn" class="waves-effect waves-light btn-large">Submit</button>
     </div>
