@@ -15,7 +15,7 @@ function formatDates(){
   var dates = $('.date')
   dates.map(date => {
     $('.date').empty()
-    $('.date').append(moment(date).format('LL'))
+    $('.date').append(moment().utc(date).format('LL'))
   })
 }
 
@@ -85,7 +85,6 @@ function deletePostListener(){
       url: `/users/${id}`,
       method: 'DELETE',
     }).done(() => {
-      console.log('here')
       window.location = '/posts'
     }).fail(err => {
       console.log(err)
