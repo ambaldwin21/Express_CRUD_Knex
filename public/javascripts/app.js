@@ -3,9 +3,9 @@
 $(document).ready(() => {
   console.log('wassup')
   formatDates()
-  updateUserListener()
+  editUserListener()
   deleteUserListener()
-  updatePostListener()
+  editPostListener()
   deletePostListener()
 })
 
@@ -19,7 +19,7 @@ function formatDates(){
   })
 }
 
-function updateUserListener(){
+function editUserListener(){
   $('#edit-user-btn').click((e) => {
     e.preventDefault()
     const first_name = $('#first_name').val().trim()
@@ -57,7 +57,7 @@ function deleteUserListener(){
   })
 }
 
-function updatePostListener(){
+function editPostListener(){
   $('#edit-post-btn').click((e) => {
     e.preventDefault()
 
@@ -80,7 +80,7 @@ function updatePostListener(){
 }
 
 function deletePostListener(){
-  $('#edit-post-btn').click((e) => {
+  $('#delete-post-btn').click((e) => {
     e.preventDefault()
     $.ajax({
       contentType: 'application/json',

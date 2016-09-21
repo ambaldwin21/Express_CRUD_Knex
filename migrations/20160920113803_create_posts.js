@@ -3,7 +3,7 @@ exports.up = function(knex) {
     table.increments()
     table.string('title')
     table.text('body')
-    table.integer('user_id').unsigned().references('id').inTable('users')
+    table.integer('user_id').unsigned().references('id').inTable('users').onDelete('cascade')
     table.dateTime('created_at')
   })
 }
