@@ -34,7 +34,6 @@ function editUserListener(){
       dataType: 'json',
       data: JSON.stringify({id, first_name, last_name, avatar, bio}),
     }).done(() => {
-      console.log('here')
       window.location = '/users'
     }).fail(err => {
       console.log(err)
@@ -50,7 +49,6 @@ function deleteUserListener(){
       url: `/users/${id}`,
       method: 'DELETE',
     }).done(() => {
-      console.log('here')
       window.location = '/users'
     }).fail(err => {
       console.log(err)

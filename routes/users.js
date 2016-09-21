@@ -31,7 +31,6 @@ router.put('/:id', function(req, res) {
 })
 
 router.delete('/:id', function(req, res) {
-  console.log('here')
   db.deleteUser(req.params.id).then(() => {
     res.json({'response': 'user deleted'})
   })
