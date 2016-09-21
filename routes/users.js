@@ -4,17 +4,17 @@ var db = require('../db/api')
 
 router.get('/', function(req, res) {
   db.getAllUsers().then(users => {
-    res.render('users/users', {users: users, title: 'Blog!'})
+    res.render('users/users', {users: users, title: 'An Excellent Blog'})
   })
 })
 
 router.get('/new', function(req, res) {
-  res.render('users/new', {title: 'Blog!'})
+  res.render('users/new', {title: 'An Excellent Blog'})
 })
 
 router.get('/:id', function(req, res) {
   db.getUser(req.params.id).then(user => {
-    res.render('users/user', {user: user, title: 'Blog!'})
+    res.render('users/user', {user: user, title: 'An Excellent Blog'})
   })
 })
 
@@ -39,7 +39,7 @@ router.delete('/:id', function(req, res) {
 
 router.get('/:id/edit', function(req, res) {
   db.getUser(req.params.id).then(user => {
-    res.render('users/edit', {user: user, title: 'Blog!'})
+    res.render('users/edit', {user: user, title: 'An Excellent Blog'})
   })
 
 })
