@@ -4,6 +4,9 @@ $(document).ready(() => {
   console.log('wassup')
   formatDates()
   updateUserListener()
+  deleteUserListener()
+  updatePostListener()
+  deletePostListener()
 })
 
 const id = parseInt(window.location.pathname.split('/')[2])
@@ -19,23 +22,73 @@ function formatDates(){
 function updateUserListener(){
   $('#edit-user-btn').click((e) => {
     e.preventDefault()
-
     const first_name = $('#first_name').val().trim()
     const last_name = $('#last_name').val().trim()
     const avatar = $('#avatar').val().trim()
     const bio = $('#bio').val().trim()
+    $.ajax({
+      contentType: 'application/json',
+      url: `/users/${id}`,
+      method: 'PUT',
+      dataType: 'json',
+      data: JSON.stringify({first_name, last_name, avatar, bio}),
+    }).done(() => {
+      console.log('here')
+      window.location = '/users'
+    }).fail(err => {
+      console.log(err)
+    })
+  })
+}
+
+function deleteUserListener(){
+  $('#delete-user-btn').click((e) => {
+    e.preventDefault()
+    $.ajax({
+      contentType: 'application/json',
+      url: `/users/${id}`,
+      method: 'DELETE',
+    }).done(() => {
+      console.log('here')
+      window.location = '/users'
+    }).fail(err => {
+      console.log(err)
+    })
+  })
+}
+
+function updatePostListener(){
+  $('#edit-post-btn').click((e) => {
+    e.preventDefault()
+
+    const title = $('#title').val().trim()
+    const body = $('#body').val().trim()
 
     $.ajax({
       contentType: 'application/json',
       url: `/users/${id}`,
       method: 'PUT',
       dataType: 'json',
-      data: JSON.stringify({
-        first_name, last_name, avatar, bio,
-      }),
+      data: JSON.stringify({title, body}),
     }).done(() => {
       console.log('here')
-      window.location = '/users'
+      window.location = '/posts'
+    }).fail(err => {
+      console.log(err)
+    })
+  })
+}
+
+function deletePostListener(){
+  $('#edit-post-btn').click((e) => {
+    e.preventDefault()
+    $.ajax({
+      contentType: 'application/json',
+      url: `/users/${id}`,
+      method: 'DELETE',
+    }).done(() => {
+      console.log('here')
+      window.location = '/posts'
     }).fail(err => {
       console.log(err)
     })
